@@ -2,37 +2,47 @@
 
 check_tc_server(){
   tc_server_path='/opt/tc-server/'
-  tc_servers=("${tc_server_path}-ams" "${tc_server_path}-ams-1" "${tc_server_path}-vasp" "${tc_server_path}-vasp-1")
+  tc_servers=("${tc_server_path}-web" "${tc_server_path}-web-1" "${tc_server_path}-app" "${tc_server_path}-app-1")
   for server in ${tc_servers[@]}
   do
-    pid=`cat $server/logs/tcserver.pid`
-    num=`ps -ef | grep $pid | wc -l`
-    if [ $num -gt 1 ];then
-      echo "${server} is ok."
-    else
-      echo "${server} is error; please start ${server}"
-    fi
+    if [ -e "$server/logs/tcserver.pid" ];then
+      pid=`cat $server/logs/tcserver.pid`
+      num=`ps -ef | grep $pid | wc -l`
+      if [ $num -gt 1 ];then
+        echo "${server} is ok."
+		continue;
+      fi
+	fi
+	
+	echo "${server} is error; please start ${server}"
+    echo "execute command: ${server}/bin/tcruntime-ctl.sh start"
   done
 }
 
 check_nginx(){
-  pid=`cat /var/run/nginx.pid`
-  num=`ps -ef | grep $pid | wc -l`
-  if [ $num -gt 1 ];then
-    echo 'nginx is ok.'
-  else
-    echo 'nginx is error; please start nginx'
+  if [ -e "/var/run/nginx.pid" ];then
+    pid=`cat /var/run/nginx.pid`
+    num=`ps -ef | grep $pid | wc -l`
+    if [ $num -gt 1 ];then
+	  echo 'nginx is ok.'
+	  return
+	fi
   fi
+  
+  echo 'nginx is error; please start nginx'
 }
 
 check_mysqld(){
-  pid=`cat /var/run/mysqld/mysqld.pid`
-  num=`ps -ef | grep $pid | wc -l`
-  if [ $num -gt 1 ];then
-    echo "mysqld is ok."
-  else
-    echo "mysqld is error; please start mysqld"
+  if [ -e "/var/run/mysqld/mysqld.pid" ];then
+    pid=`cat /var/run/mysqld/mysqld.pid`
+    num=`ps -ef | grep $pid | wc -l`
+    if [ $num -gt 1 ];then
+	  echo 'mysqld is ok.'
+	  return
+	fi
   fi
+  
+  echo "mysqld is error; please start mysqld"
 }
 
 check_vsftpd(){
