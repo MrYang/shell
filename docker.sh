@@ -12,6 +12,8 @@ docker exec -ti container /bin/bash
 docker inspect -f "{{.Volumes}}" mongo
 docker logs -f mongo
 
+docker run -p 8081:8080 --rm tomcat:8-jre8
+
 docker run --name tomcat -p 8080:8080 -v /home/webapps/web/:/usr/local/tomcat/webapps/web/ -d tomcat:8-jre8
 docker run --name mysql -p 3307:3306 -v /home/webapps/mysql/data/:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=123456 -d mysql
 docker run --name mongo -p 27017:27017 -v /home/webapps/mongo/data:/data/db -d mongo
