@@ -9,6 +9,7 @@ docker ps
 #docker rmi container;
 
 docker exec -ti container /bin/bash
+docker run --rm -t -i ubuntu /bin/bash
 docker inspect -f "{{.Volumes}}" mongo
 docker logs -f mongo
 
