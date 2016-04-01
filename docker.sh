@@ -3,15 +3,15 @@
 docker search mongo
 docker pull mongo
 docker iamges
-docker ps 
+docker ps [-a]
 
 #docker rm image
 #docker rmi container;
 
 docker exec -ti container /bin/bash
-docker run --rm -t -i ubuntu /bin/bash
+docker run --rm -t -i ubuntu /bin/bash	#运行完成后自动删除容器
 docker inspect -f "{{.Volumes}}" mongo
-docker logs -f mongo
+docker logs -f mongo #查看日志
 
 docker run -p 8081:8080 --rm tomcat:8-jre8
 
