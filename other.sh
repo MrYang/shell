@@ -22,3 +22,4 @@ date -d "2012-08-13 14:00:23" +%s    # 换算成秒计算(1970年至今的秒数
 date -d "@1363867952" +%Y-%m-%d-%T   # 将时间戳换算成日期
 date -d "1970-01-01 UTC 1363867952 seconds" +%Y-%m-%d-%T  # 将时间戳换算成日期
 date -d "`awk -F. '{print $1}' /proc/uptime` second ago" +"%Y-%m-%d %H:%M:%S"    # 格式化系统启动时间(多少秒前)
+find /data/log -mtime +7 -name "*.log" -exec rm -rf {} \;
