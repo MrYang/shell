@@ -6,6 +6,8 @@ Ctrl+E # 行尾
 Ctrl+S # 终端锁屏
 Ctrl+Q # 解锁屏
 Ctrl+D # 退出
+Crtl+K # 删除到行尾
+Crtl+U # 删除行
 
 date -s 20091112                     # 设日期
 date -s 18:30:50                     # 设时间
