@@ -6,7 +6,7 @@ rm -rf [dir|file]
 ln source target #链接
 ln -s source target #符号链接
 cat file | nl | less #上下翻页且显示行号
-head -n file 
+head -n file
 tail -f log #查看日志,日志有改动,可以滚动查看
 tail -c 10m #截取文件末尾10M内容
 file #查看文件类型
@@ -17,7 +17,7 @@ wc -l
 cp filename{,.bak} # 快速备份文件
 
 sort
-	-t  # 指定排序时所用的栏位分隔字符
+	  -t  # 指定排序时所用的栏位分隔字符
     -n  # 依照数值的大小排序
     -r  # 以相反的顺序来排序
     -f  # 排序时，将小写字母视为大写字母
@@ -36,3 +36,12 @@ sort -t" " -k 2n -u  a.txt        # 以第二域进行排序，如果遇到重�
 
 df -h
 du --max-depth=1 /opt
+
+tar xvf 1.tar -C 指定目录 # 解包tar
+tar -cvf 1.tar *             # 打包tar
+tar tvf 1.tar                # 查看tar
+tar -rvf 1.tar 文件名        # 给tar追加文件
+tar --exclude=/home/dir --exclude=*.tar -zcvf file.tar.gz /home/* /etc      # 打包/home, /etc ，排除 /home/dir
+
+gzip -r logs # 递归压缩目录，压缩后源文件消失
+gzip -d # 解压

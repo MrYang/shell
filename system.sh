@@ -18,11 +18,16 @@ whoami
 
 netstat -anp | grep port
 ps [-ef|aux] | grep java
+sysctl -a                   # 查看当前所有系统内核参数
+lsof
 
 top
 free
 vmstat
 iostat
+
+chmod +x shell.sh
+kill pid # kill -9 pid 强制杀死
 
 #开奖脚本启动顺序
 /etc/profile
@@ -37,3 +42,10 @@ ulimit -a # 查看
 
 ssh -p 22 root@192.168.152.10
 scp -r local_dir root@192.168.152.10:remote_dir
+
+/etc/hosts
+/etc/resolv.conf #dns配置
+/etc/rc.local #开机启动
+/etc/profile #环境变量
+/var/log/messages #系统日志
+/etc/yum.repos.d/

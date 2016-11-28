@@ -10,7 +10,7 @@ rpm -Uvh               # 升级包
 rpm --test lynx        # 测试
 rpm -qc                # 软件包配置文档
 rpm --import  /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6     # 导入rpm的签名信息
-rpm --initdb           # 初始化rpm 数据库 
+rpm --initdb           # 初始化rpm 数据库
 rpm --rebuilddb        # 重建rpm数据库  在rpm列表不好使的情况使用
 
 

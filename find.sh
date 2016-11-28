@@ -1,5 +1,9 @@
 #!/bin/bash
 
+which
+whereis
+locate
+
 find /etc -name "*http*" # 按文件名查找
 find / -type f # 查找某一类型文件
 find / -perm # 按照文件权限查找
@@ -16,3 +20,7 @@ find /etc -name "*passwd*" -exec grep "123456" {} \; # 按名字查找文件传�
 find / -name 't*' -exec basename {} \;  # 查找文件名,不取路径
 find / -type f -name "err*" -exec  rename err ERR {} \; # 批量改名(查找err 替换为 ERR {}文件
 find / -name *name1* -or -name *name2*  # 查找任意一个关键字
+
+
+grep -v # 取反
+grep -E "word1|word2|word3" file
