@@ -18,13 +18,33 @@ whoami
 
 netstat -anp | grep port
 ps [-ef|aux] | grep java
+ps -T -p <pid>  查看进程中的线程
+
 sysctl -a                   # 查看当前所有系统内核参数
 lsof
 
 top
+1 可以显示所有CPU核心的负载情况
+M 根据驻留内存大小进行排序。
+P 根据CPU使用百分比大小进行排序。
+T 根据时间/累计时间进行排序。
+
+top -H -p pid  查看进程中的线程
+
+# 查看进程中最耗cpu的线程
+top -H  -b -n 1 -p $pid | sed '1,/^$/d' | grep -v $pid | grep -v PID | sort -nrk9 | head -1
+# 对tid进行16进制转换
+printf "%0x" tid
+
 free
+
 vmstat
+vmstat -S m 1 5  每隔1s输出一次，总共输出5次，单位位m
+
 iostat
+
+-c 单独显示avg-cpu部分
+-d 单独显示Device部分
 
 chmod +x shell.sh
 kill pid # kill -9 pid 强制杀死
