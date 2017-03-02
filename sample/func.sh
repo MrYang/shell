@@ -33,7 +33,7 @@ check_disk(){
 }
 
 curl_json(){
-  curl -H "Content-Type: application/json; charset=UTF-8" -X POST -d '{"data":"data"}' http://ip:port
+  curl -i -X POST -H "Content-Type: application/json; charset=UTF-8" -H 'Accept':'application/json' -d '{"data":"data"}' http://ip:port
   curl -F "photo=@/home/photo.jpg" -X POST -F 'userId=1' http://ip:port
 }
 
