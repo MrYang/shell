@@ -69,3 +69,6 @@ sed '2,$d' my.txt # 删除第二行到最后一行
 
 sed "2 c replace line" my.txt # 替换第二行
 sed "/fish/c replace line" my.txt # 匹配到/fish/后替换
+
+// 端口占用
+netstat -anp |grep 6321 | awk '{print $5}' | awk -F ':' '{print $1}' | sort | uniq -c | sort -nrk 1
