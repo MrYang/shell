@@ -63,6 +63,11 @@ ulimit -a # 查看
 ssh -p 22 root@192.168.152.10
 scp -r local_dir root@192.168.152.10:remote_dir
 
+python -m SimpleHTTPServer 8080
+python3 -m http.server 8080
+
+http_proxy=http://<proxy_username>:<proxy_password>@<your_proxy_server>:<your_proxy_port>  curl -I http://google.com/
+
 /etc/hosts
 /etc/resolv.conf #dns配置
 /etc/rc.local #开机启动
