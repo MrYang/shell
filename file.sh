@@ -13,11 +13,12 @@ file #查看文件类型
 uniq   # 删除重复的行
 uniq -c # 重复的行出现次数
 uniq -u # 只显示不重复行
+cut -d: -f1 # 分隔符:,去第一列
 wc -l
 cp filename{,.bak} # 快速备份文件
 
 sort
-	  -t  # 指定排序时所用的栏位分隔字符
+	-t  # 指定排序时所用的栏位分隔字符
     -n  # 依照数值的大小排序
     -r  # 以相反的顺序来排序
     -f  # 排序时，将小写字母视为大写字母
@@ -45,3 +46,7 @@ tar --exclude=/home/dir --exclude=*.tar -zcvf file.tar.gz /home/* /etc      # �
 
 gzip -r logs # 递归压缩目录，压缩后源文件消失
 gzip -d # 解压
+
+chown -R owner[:group] dir
+chgrp -R group dir
+chmod +x file

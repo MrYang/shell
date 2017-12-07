@@ -16,12 +16,12 @@ lsb_release -a # 查看系统版本centos-release
 uptime
 whoami
 
-netstat -anp | grep port
+netstat -anp --tcp | grep port
 ps [-ef|aux] | grep java
 ps -T -p <pid>  查看进程中的线程
 
 sysctl -a                   # 查看当前所有系统内核参数
-lsof
+lsof -i tcp:3000
 
 top
 1 可以显示所有CPU核心的负载情况

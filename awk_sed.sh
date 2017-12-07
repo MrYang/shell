@@ -12,6 +12,10 @@ OFS	输出字段分隔符， 默认也是空格
 ORS	输出的记录分隔符，默认为换行符
 FILENAME	当前输入文件的名字
 
+BEGIN{ 这里面放的是执行前的语句 }
+END {这里面放的是处理完所有的行后要执行的语句 }
+{这里面放的是处理每一行时要执行的语句}
+
 awk '{print $1, $4}' netstat.txt  # 打印第一列，第四列
 awk '{printf "%-8s %-8s\n", $1, $4}' netstat.txt  # 格式化
 awk '$3==0 && $6=="LISTEN" || NR == 1 {printf "%-8s %-8s\n", $1, $4}' netstat.txt  # 第三列＝0，第六列＝LISTEN
@@ -24,6 +28,10 @@ else print > "3.txt" }' netstat.txt # if 语句
 ls -l  *.cpp *.c *.h | awk '{sum+=$5} END {print sum}' # 计算所有文件大小
 
 ps aux | awk 'NR!=1{a[$1]+=$6;} END { for(i in a) print i ", " a[i]"KB";}' # 统计每个用户的进程的占了多少内存
+
+netstat -n | awk '/^tcp/ {++S[$NF]} END {for(a in S) print a, S[a]}' # 统计tcp连接状态及数量
+netstat -atp | awk 'NR!=1 {++S[$6]} END {for(a in S) print a, S[a]}' # 统计tcp连接状态及数量
+netstat -ntu | awk '{print $5}' | cut -d: -f1 | sort | uniq -c | sort -nr #按连接数查看客户端IP
 
 awk '/joint/ {print $1,$2,$9}' access.log | awk -F',' '{print $1,$2}' | awk -F'=' '{if($2>100){print $0}}'
 
