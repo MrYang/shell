@@ -10,10 +10,10 @@ head -n file
 tail -f log #查看日志,日志有改动,可以滚动查看
 tail -c 10m #截取文件末尾10M内容
 file #查看文件类型
-uniq   # 删除重复的行
+uniq   # 删除重复的行,对文本操作时，它一般会和 sort 命令进行组合使用，uniq 不会检查重复的行，除非它们是相邻的行
 uniq -c # 重复的行出现次数
-uniq -u # 只显示不重复行
-cut -d: -f1 # 分隔符:,去第一列
+uniq -u # 只显示不重复行,
+cut -d: -f1 # 分隔符:,去第一列, cut -d ':' -f 1-3
 wc -l
 cp filename{,.bak} # 快速备份文件
 

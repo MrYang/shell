@@ -7,6 +7,7 @@ pidfile="${appHome}/${appName}/logs/app.pid"
 
 function update() {
     cd ${gitPath}
+    git checkout dev
     git pull
 }
 

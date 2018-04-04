@@ -37,6 +37,9 @@ curl_json(){
   curl -F "photo=@/home/photo.jpg" -X POST -F 'userId=1' http://ip:port
 }
 
+curl -X POST --data "data=xxx" example.com/form.cgi
+curl -X POST --data-urlencode "date=April 1" example.com/form.cgi
+
 date_while(){
   start='20161001'
   end='20161128'
