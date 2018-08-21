@@ -23,5 +23,6 @@ yum search mail          # yum搜索相关包
 yum grouplist            # 软件包组
 yum -y groupinstall "Virtualization"   # 安装软件包组
 yum clean all            # 清除var下缓存
+yum localinstall xx.rpm
 
 rpm -Uvh  http://mirrors.hustunique.com/epel//6/x86_64/epel-release-6-8.noarch.rpm

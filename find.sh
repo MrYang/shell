@@ -24,3 +24,4 @@ find / -name *name1* -or -name *name2*  # 查找任意一个关键字
 
 grep -v # 取反
 grep -E "word1|word2|word3" file
+grep "^\s*[^# \t].*$" file #grep过滤注释行(包括前空白)和空白行过滤注释行(包括前空白)和空白行
