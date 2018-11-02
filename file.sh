@@ -1,6 +1,7 @@
 #!/bin/bash
 
-ls -rtl # 按时间倒叙列出所有目录和文件 ll -rt
+ll -thr # 按时间倒叙列出所有目录和文件
+ll -Shr # 按文件大小顺序排
 touch file
 rm -rf [dir|file]
 ln source target #链接
