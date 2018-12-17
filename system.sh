@@ -21,7 +21,9 @@ ps [-ef|aux] | grep java
 ps -T -p <pid>  查看进程中的线程
 
 sysctl -a                   # 查看当前所有系统内核参数
-lsof -i tcp:3000
+lsof -i tcp:3000 # 查看谁在使用3000端口
+lsof -p pid  # 查看进程打开的文件
+lsof file  # 查看谁正在使用文件
 
 top
 1 可以显示所有CPU核心的负载情况

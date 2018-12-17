@@ -12,6 +12,18 @@ walk(){
   done
 }
 
+# sh open.sh arg1 arg2 arg3
+walk_2(){
+  while [ $# != 0 ];do
+      for f in `ls $1 | grep "gz"`
+      do
+          zgrep "openTreasureBox,awardInfo###" $1/${f} | awk '{print $1,$2,$8}' | awk -F ' openTreasureBox,awardInfo###' '{print $1"," $2}' >> /tmp/open.csv
+      done
+      shift
+  done
+
+}
+
 cut_nginx_log(){
   nginx_path="/usr/local/nginx"
   yesterday=`date -d yesterday +%Y%m%d`
