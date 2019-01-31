@@ -21,7 +21,7 @@ ps [-ef|aux] | grep java
 ps -T -p <pid>  查看进程中的线程
 
 sysctl -a                   # 查看当前所有系统内核参数
-lsof -i tcp:3000 # 查看谁在使用3000端口
+lsof -i tcp:3000 # 查看谁在使用3000端口 (list open file)
 lsof -p pid  # 查看进程打开的文件
 lsof file  # 查看谁正在使用文件
 
@@ -42,6 +42,27 @@ free
 
 vmstat
 vmstat -S m 1 5  每隔1s输出一次，总共输出5次，单位位m
+
+procs -----------memory---------- ---swap-- -----io----    -system-- ------cpu-----
+ r  b   swpd   free   buff  cache      si   so    bi    bo   in   cs us sy id wa st
+ 0  0      0 372920 757776 48862708    0    0     0     5    0    0  0  0 100  0  0
+
+r (run queue) 运行队列
+b (block queue)
+swpd 虚拟内存已使用的大小，如果大于0，表示机器物理内存不足,单位kb
+free 空闲的物理内存
+buff 
+si  (swap in)每秒从磁盘(Swap)读入虚拟内存的大小 大于0，表示物理内存不够用或者内存泄露
+so  (swap out)每秒虚拟内存写入磁盘的大小
+bi  (blocks in)块设备(磁盘)每秒读到的块数量,默认块大小是1024byte
+bo  (blocks out)块设备每秒写入的块数量
+in  (interrupts)每秒CPU的中断次数，包括时间中断
+cs  (context switch)每秒上下文切换次数（调用系统函数，线程的切换）
+us  (user time)用户CPU时间
+sy  (system time)系统CPU时间，如果太高，表示系统调用时间长，例如是IO操作频繁
+id  (idle)空闲 CPU时间
+wt  (wait time)等待IO CPU时间
+
 
 iostat
 
